@@ -73,6 +73,9 @@ public class CreateOrEditNote extends AppCompatActivity {
       case android.R.id.home:
         promptSave();
         break;
+      case R.id.action_save_note:
+        promptSave();
+        break;
 
       default:
         break;

@@ -176,6 +176,8 @@ public class CreateOrEditAlert extends AppCompatActivity {
       case android.R.id.home:
         promptSave();
         break;
+      case R.id.action_save_alert:
+        promptSave();
       default:
         break;
     }

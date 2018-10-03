@@ -103,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
             break;
           case R.id.nav_map:
             mDrawerLayout.closeDrawers();
-            Intent i = new Intent("AreYouTraveling");
+            Intent i = new Intent(MainActivity.this, AreYouTraveling.class);
+            startActivity(i);
             break;
           default:
             break;
