@@ -12,7 +12,6 @@
     <string name="nav_alerts">Alerts</string>
     <string name="nav_notes">Notes</string>
     <string name="nav_settings">Settings</string>
-    <string name="nav_map">Are you driving?</string>
     <string name="nav_map">Are you Traveling?</string>
 
     <!-- FAB labels -->
@@ -38,4 +37,5 @@
     <string name="show_all_toast">Showing all items</string>
     <string name="show_alerts_toast">Showing all alerts</string>
     <string name="show_notes_toast">Showing all notes</string>
+    <string name="title_activity_are_you_traveling">Map</string>
 </resources>

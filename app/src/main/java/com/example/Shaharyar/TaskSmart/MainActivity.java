@@ -1,5 +1,6 @@
 package com.example.Shaharyar.TaskSmart;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             break;
           case R.id.nav_map:
             mDrawerLayout.closeDrawers();
-            Toast.makeText(getApplicationContext(), "Coming soon!", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent("AreYouTraveling");
             break;
           default:
             break;
