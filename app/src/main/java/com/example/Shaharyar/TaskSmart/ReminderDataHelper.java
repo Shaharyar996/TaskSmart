@@ -17,6 +17,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
   private static final String DB_COLUMN_CONTENT = "content";
   private static final String DB_COLUMN_TIME = "time";
   private static final String DB_COLUMN_FREQUENCY = "frequency";
+  private static final String DB_COLUMN_LOCATION = "location";
 
   public ReminderDataHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,6 +31,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
             DB_COLUMN_TITLE + " TEXT, " +
             DB_COLUMN_CONTENT + " TEXT, " +
             DB_COLUMN_FREQUENCY + " TEXT, " +
+            DB_COLUMN_LOCATION + " TEXT, " +
             DB_COLUMN_TIME + " LONG)"
     );
   }

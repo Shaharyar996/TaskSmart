@@ -16,6 +16,7 @@ public class ReminderItem implements Parcelable {
   private String mContent;
   private long mTimeInMillis;
   private int mFrequency;
+  private String mLocation;
 
   private static final SimpleDateFormat TIME_FORMAT =
       new SimpleDateFormat("HH:mm, MMM d ''yy",Locale.CANADA);
@@ -31,6 +32,7 @@ public class ReminderItem implements Parcelable {
     mTitle = cursor.getString(cursor.getColumnIndex(ReminderParams.TITLE));
     mTimeInMillis = cursor.getLong(cursor.getColumnIndex(ReminderParams.TIME));
     mFrequency = cursor.getInt(cursor.getColumnIndex(ReminderParams.FREQUENCY));
+    mLocation = cursor.getString(cursor.getColumnIndex(ReminderParams.LOCATION));
   }
 
   public int getId() {
@@ -85,6 +87,14 @@ public class ReminderItem implements Parcelable {
     mFrequency = frequency;
   }
 
+  public String getLocation() {
+    return mLocation;
+  }
+
+  public void setLocation(String location) { mLocation = location;}
+
+
+
 
   @Override
   public int describeContents() {
@@ -99,6 +109,7 @@ public class ReminderItem implements Parcelable {
     dest.writeString(this.mContent);
     dest.writeLong(this.mTimeInMillis);
     dest.writeInt(this.mFrequency);
+    dest.writeString(this.mLocation);
   }
 
   protected ReminderItem(Parcel in) {
@@ -108,6 +119,7 @@ public class ReminderItem implements Parcelable {
     this.mContent = in.readString();
     this.mTimeInMillis = in.readLong();
     this.mFrequency = in.readInt();
+    this.mLocation = in.readString();
   }
 
   public static final Creator<ReminderItem> CREATOR = new Creator<ReminderItem>() {

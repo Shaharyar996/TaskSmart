@@ -17,6 +17,7 @@ public class ReminderViewHolder extends SwappingHolder implements
   private TextView mTitle;
   private TextView mContent;
   private TextView mTime;
+  private TextView mLocation;
   private ImageView mIcon;
   private CardView mCardView;
 
@@ -39,6 +40,7 @@ public class ReminderViewHolder extends SwappingHolder implements
     mTitle = view.findViewById(R.id.title);
     mContent = view.findViewById(R.id.reminder);
     mTime = view.findViewById(R.id.timeLabel);
+    mLocation = view.findViewById(R.id.locationLabel);
     mIcon = view.findViewById(R.id.icon);
     mCardView = view.findViewById(R.id.card_view);
 
@@ -52,6 +54,10 @@ public class ReminderViewHolder extends SwappingHolder implements
 
   public void setContent(String content) {
     mContent.setText(content);
+  }
+
+  public void setLocation(String location) {
+    mLocation.setText(location);
   }
 
   public void setTimeLabel(String timeLabel) {

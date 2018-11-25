@@ -48,7 +48,7 @@
         android:layout_height="233dp" />
 
     <EditText
-        android:id="@+id/Location"
+        android:id="@+id/alert_location"
         android:layout_width="match_parent"
         android:layout_height="82dp"
         android:ems="10"

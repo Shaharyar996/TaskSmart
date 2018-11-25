@@ -64,7 +64,6 @@ public class AlarmService extends IntentService {
 
     if (CREATE.equals(action)) {
       alarm.setExact(AlarmManager.RTC_WAKEUP, timeInMilliseconds, pendingIntent);
-
     } else if (DELETE.equals(action)) {
       alarm.cancel(pendingIntent);
       NotificationManager notificationManager =
