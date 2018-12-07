@@ -23,6 +23,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
 
   public ReminderDataHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
   }
 
   @Override
