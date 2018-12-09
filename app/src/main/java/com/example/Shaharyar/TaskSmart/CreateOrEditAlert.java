@@ -36,7 +36,7 @@ import java.util.Map;
 
 public class CreateOrEditAlert extends AppCompatActivity {
   private SimpleAdapter mAdapter;
-  private EditText mContent, mTitle , mLocation;
+  private EditText mContent, mTitle , mLocation , mTags;
   private String mTime, mDate;
   private int mRepeatMode;
   private Map<String, String> mAlarmTime, mAlarmDate, mAlarmRepeat;
@@ -83,6 +83,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
     mContent = findViewById(R.id.alert_content);
     mTitle = findViewById(R.id.alert_title);
     mLocation = findViewById(R.id.alert_location);
+    mTags = findViewById(R.id.alert_tags);
 
     mRepeatMode = 0;
 
@@ -98,6 +99,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
       mTitle.setText(mData.getTitle());
       mContent.setText(mData.getContent());
       mLocation.setText(mData.getLocation());
+      mTags.setText(mData.getTags());
       mAlertTime.setTimeInMillis(mData.getTimeInMillis());
       mRepeatMode = mData.getFrequency();
 
@@ -136,7 +138,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i) {
+        switch (i){
           case TIME_POSITION:
             TimePickerDialog timePicker = getTimePicker();
             timePicker.show();
@@ -302,6 +304,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
     mData.setTitle(mTitle.getText().toString());
     mData.setContent(mContent.getText().toString());
     mData.setLocation(mLocation.getText().toString());
+    mData.setTags(mTags.getText().toString());
     createSaveDialog(mData).show();
   }
 
@@ -339,6 +342,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
       values.put(ReminderContract.Alerts.TIME, item.getTimeInMillis());
       values.put(ReminderContract.Alerts.FREQUENCY, item.getFrequency());
       values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
+      values.put(ReminderContract.Alerts.TAGS, item.getTags());
       Uri uri = ContentUris.withAppendedId(ReminderContract.Alerts.CONTENT_URI, item.getId());
       mContentResolver.update(uri, values, null, null);
       createAlarm(item.getId());
@@ -350,6 +354,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
       values.put(ReminderContract.Alerts.TIME, item.getTimeInMillis());
       values.put(ReminderContract.Alerts.FREQUENCY, item.getFrequency());
       values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
+      values.put(ReminderContract.Alerts.TAGS, item.getTags());
       Uri uri = mContentResolver.insert(ReminderContract.Alerts.CONTENT_URI,
           values);
       if (uri != null) {

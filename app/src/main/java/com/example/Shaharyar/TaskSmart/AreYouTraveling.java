@@ -37,26 +37,26 @@ public class AreYouTraveling extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
-    public void onMapSearch(View view) {
-        EditText locationSearch = (EditText) findViewById(R.id.editText);
-        String location = locationSearch.getText().toString();
-        List<Address> addressList = null;
-
-        if (location != null || !location.equals("")) {
-            Geocoder geocoder = new Geocoder(this);
-            try {
-                addressList = geocoder.getFromLocationName(location, 1);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Address address = addressList.get(0);
-            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        }
-    }
+//
+//    public void onMapSearch(View view) {
+//        EditText locationSearch = (EditText) findViewById(R.id.editText);
+//        String location = locationSearch.getText().toString();
+//        List<Address> addressList = null;
+//
+//        if (location != null || !location.equals("")) {
+//            Geocoder geocoder = new Geocoder(this);
+//            try {
+//                addressList = geocoder.getFromLocationName(location, 1);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            Address address = addressList.get(0);
+//            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+//            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+//            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+//        }
+//    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

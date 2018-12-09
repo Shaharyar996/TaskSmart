@@ -19,6 +19,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
   private static final String DB_COLUMN_CONTENT = "content";
   private static final String DB_COLUMN_TIME = "time";
   private static final String DB_COLUMN_FREQUENCY = "frequency";
+  private static final String DB_COLUMN_TAGS = "tags";
   private static final String DB_COLUMN_LOCATION = "location";
 
   public ReminderDataHelper(Context context) {
@@ -35,6 +36,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
             DB_COLUMN_CONTENT + " TEXT, " +
             DB_COLUMN_FREQUENCY + " TEXT, " +
             DB_COLUMN_LOCATION + " TEXT, " +
+            DB_COLUMN_TAGS + " TEXT, " +
             DB_COLUMN_TIME + " LONG)"
     );
   }
@@ -47,7 +49,7 @@ public class ReminderDataHelper extends SQLiteOpenHelper {
   public Cursor GetAlltags()
   {
     SQLiteDatabase db = this.getReadableDatabase();
-    Cursor res = db.rawQuery("Select location from "+ DB_TABLE_NAME,null);
+    Cursor res = db.rawQuery("Select tags from "+ DB_TABLE_NAME,null);
     return res;
   }
 

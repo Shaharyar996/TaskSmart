@@ -33,8 +33,9 @@ public final class ReminderContract {
   public static final String TIME = "time";
   public static final String FREQUENCY = "frequency";
   public static final String LOCATION = "location";
+  public static final String TAGS = "tags";
 
-  public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION};
+  public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION , TAGS};
 
   public static final class Notes implements BaseColumns {
     public static final String TABLE_NAME = "reminders";
@@ -67,6 +68,7 @@ public final class ReminderContract {
     public static final String TIME = "time";
     public static final String FREQUENCY = "frequency";
     public static final String LOCATION = "location";
+    public static final String TAGS = "tags";
 
     public static final Uri CONTENT_URI =
             BASE_CONTENT_URI.buildUpon().appendPath(PATH_ALERT).build();
@@ -80,7 +82,7 @@ public final class ReminderContract {
             ContentResolver.CURSOR_ITEM_BASE_TYPE +
                     "/" + AUTHORITY + "/" + PATH_ALERT;
 
-    public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION};
+    public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION, TAGS};
 
   }
 
@@ -93,6 +95,7 @@ public final class ReminderContract {
     public static final String TIME = "time";
     public static final String FREQUENCY = "frequency";
     public static final String LOCATION = "location";
+    public static final String TAGS = "tags";
 
     public static final Uri CONTENT_URI =
             BASE_CONTENT_URI.buildUpon().appendPath(PATH_ALL).build();
@@ -106,7 +109,7 @@ public final class ReminderContract {
             ContentResolver.CURSOR_ITEM_BASE_TYPE +
                     "/" + AUTHORITY + "/" + PATH_ALL;
 
-    public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION};
+    public static final String[] PROJECTION_ALL = {_ID, TYPE, TITLE, CONTENT, TIME, FREQUENCY, LOCATION, TAGS};
 
   }
 }
