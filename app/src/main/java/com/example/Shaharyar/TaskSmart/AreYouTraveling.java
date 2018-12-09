@@ -1,6 +1,7 @@
 package com.example.Shaharyar.TaskSmart;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -8,10 +9,12 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.Shaharyar.TaskSmart.R;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -25,7 +28,8 @@ import java.util.List;
 public class AreYouTraveling extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    String title, address;
+    double latitude,longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,30 +37,21 @@ public class AreYouTraveling extends FragmentActivity implements OnMapReadyCallb
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         DataAdapter d = new DataAdapter(this);
         String str = d.doInBackground("shaharyar","kkhkhkh");
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        Intent intent = getIntent();
+        latitude = intent.getDoubleExtra("latitude", 0d);
+        longitude = intent.getDoubleExtra("longitute",0d);
+        title = intent.getStringExtra("name");
+        address = intent.getStringExtra("address");
+
+
+        //Log.e("place",latlngss);
+
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-//
-//    public void onMapSearch(View view) {
-//        EditText locationSearch = (EditText) findViewById(R.id.editText);
-//        String location = locationSearch.getText().toString();
-//        List<Address> addressList = null;
-//
-//        if (location != null || !location.equals("")) {
-//            Geocoder geocoder = new Geocoder(this);
-//            try {
-//                addressList = geocoder.getFromLocationName(location, 1);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            Address address = addressList.get(0);
-//            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-//            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-//        }
-//    }
+
+
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

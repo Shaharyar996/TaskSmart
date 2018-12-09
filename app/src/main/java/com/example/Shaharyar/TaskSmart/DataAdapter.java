@@ -69,8 +69,9 @@ public class DataAdapter extends AsyncTask<String, String, String> {
         String url = "http://192.168.0.106//api/values";
         JSONObject object = new JSONObject();
         try {
-            object.put("tags", tag);
+
             object.put("waypoints", new ArrayList<String>());
+            object.put("tags", tag);
             object.put("curLoc", "Value");
             object.put("dest", "Value");
         }
