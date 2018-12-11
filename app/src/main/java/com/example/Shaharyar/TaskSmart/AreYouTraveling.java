@@ -43,6 +43,8 @@ public class AreYouTraveling extends FragmentActivity implements OnMapReadyCallb
         title = intent.getStringExtra("name");
         address = intent.getStringExtra("address");
 
+        Log.i("tag", "onCreate: "+ title + address);
+
 
         //Log.e("place",latlngss);
 

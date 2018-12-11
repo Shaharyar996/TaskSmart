@@ -14,6 +14,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,7 +31,10 @@ import java.net.URL;
 
 import static android.content.ContentValues.TAG;
 
+
 public class DataAdapter extends AsyncTask<String, String, String> {
+
+
 
     StringBuffer str = new StringBuffer();
     private ReminderDataHelper db;
@@ -48,7 +52,7 @@ public class DataAdapter extends AsyncTask<String, String, String> {
 
 
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground(String... params)  {
         final List<String> tag = new ArrayList<>();
         db = new ReminderDataHelper(mContext);
         try {
@@ -66,23 +70,33 @@ public class DataAdapter extends AsyncTask<String, String, String> {
 
         }
         RequestQueue MyRequestQueue = Volley.newRequestQueue(mContext);
-        String url = "http://192.168.0.106//api/values";
-        JSONObject object = new JSONObject();
+        String url = "http://192.168.0.102/api/values";
+
+          JSONArray Waypoints = new JSONArray();
+          JSONArray tags =new JSONArray();
+        for (String i : tag){
+            tags.put(i);
+        }
+        JSONObject json  = new JSONObject();
         try {
+            json.put("waypoints",Waypoints);
+            json.put("tags",tags);
+            json.put("curLoc","24.933043,67.045073");
+            json.put("dest","24.901511,67.055182");
 
-            object.put("waypoints", new ArrayList<String>());
-            object.put("tags", tag);
-            object.put("curLoc", "Value");
-            object.put("dest", "Value");
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        catch(Exception e){
 
-        }
 
-        JsonObjectRequest MyStringRequest = new JsonObjectRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+        final JsonObjectRequest MyStringRequest = new JsonObjectRequest(Request.Method.POST, url, json, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());
+
+
                 //This code is executed if the server responds, whether or not the response contains data.
                 //The String 'response' contains the server's response.
             }
