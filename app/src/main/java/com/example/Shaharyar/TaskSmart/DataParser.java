@@ -1,13 +1,18 @@
 package com.example.Shaharyar.TaskSmart;
 
 import com.google.android.gms.maps.model.LatLng;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Created by ADMIN on 5/24/2017.
+ */
 public class DataParser {
 
     /** Receives a JSONObject and returns a list of lists containing latitude and longitude */
@@ -61,7 +66,7 @@ public class DataParser {
 
     /**
      * Method to decode polyline points
-     decoding-polylines-from-google-maps-direction-api-with-java
+     * Courtesy : https://jeffreysambells.com/2010/05/27/decoding-polylines-from-google-maps-direction-api-with-java
      * */
     private List<LatLng> decodePoly(String encoded) {
 

@@ -42,4 +42,10 @@ dependencies {
     compile 'com.github.clans:fab:1.6.4'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.koushikdutta.ion:ion:2.2.1'
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.0'
+    compile 'com.jakewharton.retrofit:retrofit1-okhttp3-client:1.0.2'
 }

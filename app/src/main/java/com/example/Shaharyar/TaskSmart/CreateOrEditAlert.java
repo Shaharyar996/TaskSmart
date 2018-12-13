@@ -82,7 +82,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
 
     mContent = findViewById(R.id.alert_content);
     mTitle = findViewById(R.id.alert_title);
-    mLocation = findViewById(R.id.alert_location);
+    //mLocation = findViewById(R.id.alert_location);
     mTags = findViewById(R.id.alert_tags);
 
     mRepeatMode = 0;
@@ -98,7 +98,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
     if (mData != null) {
       mTitle.setText(mData.getTitle());
       mContent.setText(mData.getContent());
-      mLocation.setText(mData.getLocation());
+      //mLocation.setText(mData.getLocation());
       mTags.setText(mData.getTags());
       mAlertTime.setTimeInMillis(mData.getTimeInMillis());
       mRepeatMode = mData.getFrequency();
@@ -303,7 +303,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
   private void promptSave() {
     mData.setTitle(mTitle.getText().toString());
     mData.setContent(mContent.getText().toString());
-    mData.setLocation(mLocation.getText().toString());
+    //mData.setLocation(mLocation.getText().toString());
     mData.setTags(mTags.getText().toString());
     createSaveDialog(mData).show();
   }
@@ -341,7 +341,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
       values.put(ReminderContract.Alerts.CONTENT, item.getContent());
       values.put(ReminderContract.Alerts.TIME, item.getTimeInMillis());
       values.put(ReminderContract.Alerts.FREQUENCY, item.getFrequency());
-      values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
+      //values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
       values.put(ReminderContract.Alerts.TAGS, item.getTags());
       Uri uri = ContentUris.withAppendedId(ReminderContract.Alerts.CONTENT_URI, item.getId());
       mContentResolver.update(uri, values, null, null);
@@ -353,7 +353,7 @@ public class CreateOrEditAlert extends AppCompatActivity {
       values.put(ReminderContract.Alerts.CONTENT, item.getContent());
       values.put(ReminderContract.Alerts.TIME, item.getTimeInMillis());
       values.put(ReminderContract.Alerts.FREQUENCY, item.getFrequency());
-      values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
+     //values.put(ReminderContract.Alerts.LOCATION, item.getLocation());
       values.put(ReminderContract.Alerts.TAGS, item.getTags());
       Uri uri = mContentResolver.insert(ReminderContract.Alerts.CONTENT_URI,
           values);
